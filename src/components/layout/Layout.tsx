@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-import Navbar from "./Navbar";
+import Header from "./Header";
 import Footer from "./Footer";
 
 import clsx from "clsx";
@@ -10,10 +10,10 @@ export default function Layout({ children }) {
   console.log(theme);
   return (
     <>
-      <Navbar />
+      <Header />
       <main
         className={clsx(
-          "min-h-screen max-w-5xl mx-auto px-6 pt-16",
+          "mx-auto min-h-screen max-w-5xl px-6 pt-16",
           theme === "dark" && "bg-black text-white",
         )}
       >
