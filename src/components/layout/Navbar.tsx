@@ -1,15 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 import clsx from "clsx";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar({ isNavOpen }: { isNavOpen: boolean }) {
   const theme = useContext(ThemeContext);
   return (
     <nav
       className={clsx(
-        isOpen && "left-0 h-screen w-screen",
+        isNavOpen && "left-0 h-screen w-screen",
         "absolute -left-100 border-2 border-red-500",
       )}
     >

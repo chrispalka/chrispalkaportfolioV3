@@ -20,7 +20,7 @@ export default defineConfig([
     },
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, React: 'readonly' },
       parser: tsParser,
       parserOptions: {
         ecmaVersion: 'latest',

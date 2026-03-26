@@ -1,16 +1,17 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import Header from "./Header";
 import Footer from "./Footer";
 
 import clsx from "clsx";
 
-export default function Layout({ children }) {
-  const theme = useContext(ThemeContext);
-  console.log(theme);
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState("dark");
   return (
-    <>
-      <Header />
+    <ThemeContext value={theme}>
+      <Header
+        onThemeToggle={() => setTheme(theme === "dark" ? "light" : "dark")}
+      />
       <main
         className={clsx(
           "mx-auto min-h-screen max-w-5xl px-6 pt-16",
@@ -20,6 +21,6 @@ export default function Layout({ children }) {
         {children}
       </main>
       <Footer />
-    </>
+    </ThemeContext>
   );
 }

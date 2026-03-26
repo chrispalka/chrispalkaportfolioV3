@@ -1,12 +1,25 @@
-// import { useState } from "react";
+import { useState } from "react";
+
 import Navbar from "./Navbar";
 import Hamburger from "../ui/Hamburger";
 
-export default function Header() {
+export default function Header({
+  onThemeToggle,
+}: {
+  theme: string;
+  onThemeToggle: () => void;
+}) {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const handleNavOnClick = () => {
+    setIsNavOpen(!isNavOpen);
+  };
   return (
     <>
-      <Hamburger />
-      <Navbar />
+      <button type="button" onClick={onThemeToggle}>
+        Toggle Mode
+      </button>
+      <Hamburger isNavOpen={isNavOpen} handleNavOnClick={handleNavOnClick} />
+      <Navbar isNavOpen={isNavOpen} />
     </>
   );
 }
