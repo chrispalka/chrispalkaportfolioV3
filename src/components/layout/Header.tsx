@@ -6,7 +6,6 @@ import Hamburger from "../ui/Hamburger";
 export default function Header({
   onThemeToggle,
 }: {
-  theme: string;
   onThemeToggle: () => void;
 }) {
   const [isNavOpen, setIsNavOpen] = useState(false);

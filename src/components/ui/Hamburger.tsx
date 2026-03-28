@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
-import "../../styles/hamburgers.css";
+import HamburgerIcon from "hamburger-react";
 import clsx from "clsx";
 
 export default function Hamburger({
@@ -13,20 +13,13 @@ export default function Hamburger({
 }) {
   const theme = useContext(ThemeContext);
   return (
-    <div className="bg-black">
-      <button
-        className={clsx(
-          "hamburger hamburger--emphatic",
-          isNavOpen && "is-active",
-          theme === "dark" ? "text-black" : "text-white",
-        )}
-        onClick={handleNavOnClick}
-        type="button"
-      >
-        <span className="hamburger-box">
-          <span className="hamburger-inner"></span>
-        </span>
-      </button>
+    <div className="fixed top-2 z-50">
+      <HamburgerIcon
+        color={clsx(theme === "dark" ? "#FFF" : "#000")}
+        size={24}
+        toggled={isNavOpen}
+        toggle={handleNavOnClick}
+      />
     </div>
   );
 }
