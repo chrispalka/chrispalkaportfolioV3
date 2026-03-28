@@ -14,15 +14,8 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
+          ping: ${{ secrets.SSH_HOST }}
 
       - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /home/nyne87/myapps/chrispalkaportfolioV3
-            git pull origin main
-            npm install
-            npm run build
+        run: |
+          tailscale ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /home/nyne87/myapps/chrispalkaportfolioV3 && git pull origin main && npm install && npm run build"
