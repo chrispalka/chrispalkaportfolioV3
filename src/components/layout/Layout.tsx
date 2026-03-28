@@ -9,13 +9,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState("dark");
   return (
     <ThemeContext value={theme}>
-      <div className={clsx(theme === "dark" && "dark")}>
+      <div>
         <Header
           onThemeToggle={() => setTheme(theme === "dark" ? "light" : "dark")}
         />
         <main
           className={clsx(
-            "mx-auto min-h-screen max-w-5xl px-6 pt-16",
+            "mx-auto min-h-screen max-w-5xl px-6 pt-16 transition-all duration-300",
             theme === "dark" && "bg-black text-white",
           )}
         >

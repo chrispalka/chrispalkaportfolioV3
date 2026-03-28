@@ -3,7 +3,6 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { Switch } from "@/components/ui/switch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import clsx from "clsx";
 
 import Navbar from "./Navbar";
 import Hamburger from "../ui/Hamburger";
@@ -33,11 +32,3 @@ export default function Header({
     </>
   );
 }
-
-// export default function App() {
-//   return (
-//     <ThemeContext value="dark">
-//       <Home />
-//     </ThemeContext>
-//   );
-// }
