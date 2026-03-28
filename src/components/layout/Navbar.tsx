@@ -10,12 +10,8 @@ export default function Navbar({ isNavOpen }: { isNavOpen: boolean }) {
       className={clsx(
         isNavOpen && "left-0 h-screen w-1/2",
         "fixed top-0 -left-full z-40 h-screen w-1/2 transition-all duration-300",
-        theme === "dark" ? "bg-gray-800" : "bg-white",
+        theme === "dark" ? "bg-gray-900" : "bg-white",
       )}
-    >
-      {/*<h1 className={clsx(theme === "dark" && "bg-gray-500 text-white")}>
-        Navbar
-      </h1>*/}
-    </nav>
+    ></nav>
   );
 }
